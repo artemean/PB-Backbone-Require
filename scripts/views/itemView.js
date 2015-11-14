@@ -19,7 +19,6 @@ define( ['backbone'], function (Backbone) {
 
 		onModelChange: function () {
 			this.render();
-			console.log(this);
 		},
 
 		render: function(){

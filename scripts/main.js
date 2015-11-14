@@ -6,4 +6,10 @@ require.config({
   }
 });
 
-require(['app']);
+// require(['app']);
+require(['views/mainView'], function(MainView){
+
+	var mainView = new MainView();
+	$('.wrap').append(mainView.render());
+
+});
