@@ -6,8 +6,7 @@ require.config({
   }
 });
 
-// require(['app']);
-require(['views/mainView'], function(MainView){
+require(['app/views/mainView'], function(MainView){
 
 	var mainView = new MainView();
 	$('.wrap').append(mainView.render());
