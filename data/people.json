@@ -2,7 +2,7 @@
 	{
 		"id": 1,
 		"name": "Oleg",
-		"phone": "0501234567",
+		"phone": "050 1234567",
 		"address": {
 			"city": "Kiev",
 			"street": "Pobedy",
@@ -14,21 +14,21 @@
 	{
 		"id": 2,
 		"name": "Vasya",
-		"phone": "0631234567",
+		"phone": "063 7654321",
 		"address": {
-			"city": "Kiev",
+			"city": "Lviv",
 			"street": "Mira",
 			"building": 35
 		},
 		"job": "plumber",
-		"organisation": "Vasya and sons"
+		"organisation": "Drova"
 	},
 	{
 		"id": 3,
 		"name": "Sasha",
-		"phone": "0971234567",
+		"phone": "097 9524876",
 		"address": {
-			"city": "Kiev",
+			"city": "Dnepr",
 			"street": "Grechko",
 			"building": 9
 		},
