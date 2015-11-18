@@ -11,9 +11,10 @@ define( ['backbone'], function (Backbone) {
             },
             job: '',
             organisation: ''
-        },
+        }
+        // ,
 
-        url: 'data/oleg.json'
+        // url: 'data/oleg.json'
     });
     
     return BookItem;

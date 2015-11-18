@@ -1,36 +1,26 @@
-define(['backbone', 'app/views/itemView', 'app/models/bookItem'], function (Backbone, ItemView, BookItem) {
+define(['backbone', 'app/views/listView'], function (Backbone, ListView) {
     
     var MainView = Backbone.View.extend({
         tagName: 'section',
         className: 'phonebook',
-        template: _.template('<table></table><button class="update">Update</button>'),
-
-        events: {
-            'click .update': 'updateAll'
-        },
+        template: _.template('<div class="some"></div>'),
 
         initialize: function () {
 
-            var singleModel = new BookItem();
-
-            this.itemView = new ItemView({model: singleModel});
+            this.listView = new ListView();
 
         },
 
         render: function () {
 
             this.$el.html(this.template());
-            this.$('table').append(this.itemView.render());
+            this.$('.some').append(this.listView.render());
             // app.models.bookItem1.on('change', function(){
             //  self.$('table').append(self.itemView.render());
             //  console.log(self);
             // });
             
             return this.$el;
-        },
-
-        updateAll: function () {
-            this.itemView.model.fetch()
         }
     });
 

@@ -1,0 +1,38 @@
+[
+	{
+		"id": 1,
+		"name": "Oleg",
+		"phone": "0501234567",
+		"address": {
+			"city": "Kiev",
+			"street": "Pobedy",
+			"building": 12
+		},
+		"job": "carpenter",
+		"organisation": "Oleg and sons"
+	},
+	{
+		"id": 2,
+		"name": "Vasya",
+		"phone": "0631234567",
+		"address": {
+			"city": "Kiev",
+			"street": "Mira",
+			"building": 35
+		},
+		"job": "plumber",
+		"organisation": "Vasya and sons"
+	},
+	{
+		"id": 3,
+		"name": "Sasha",
+		"phone": "0971234567",
+		"address": {
+			"city": "Kiev",
+			"street": "Grechko",
+			"building": 9
+		},
+		"job": "designer",
+		"organisation": "Sasha and Sasha"
+	}
+]

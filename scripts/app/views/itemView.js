@@ -7,14 +7,18 @@ define( ['backbone'], function (Backbone) {
 
         initialize: function () {
 
-            this.model.fetch();
+            // var singleModel = new BookItem();
 
-            this.model.on('sync', this.reRenderView.bind(this));
+            // this.itemView = new ItemView({model: singleModel});
+
+            // this.model.fetch();
+
+            // this.model.on('sync', this.reRenderView.bind(this));
         },
 
-        reRenderView: function () {
-            this.render();
-        },
+        // reRenderView: function () {
+        //     this.render();
+        // },
 
         render: function(){
             this.$el.html(this.template(this.model.attributes));
