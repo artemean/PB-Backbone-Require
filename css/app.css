@@ -8,7 +8,7 @@ body {
 	background: #edffe7;
 	padding: 20px;
 	margin: 0 auto;
-	width: 940px;
+	width: 800px;
 	border: 1px solid #697f61;
 	border-radius: 5px;
 }
@@ -27,13 +27,17 @@ td {
 	width: 100%;
 }
 
-.details {
+.details, .back {
 	font-size: 0.8rem;
 	color: #060;
 	border-bottom: 1px dotted;
 	cursor: pointer;
 }
-.details:hover {
+.details:hover, .back:hover {
 	border-bottom: 1px solid;
 	color: #090;
+}
+
+.back {
+	color: red;
 }

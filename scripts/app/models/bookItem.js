@@ -3,7 +3,7 @@ define( ['backbone'], function (Backbone) {
     var BookItem = Backbone.Model.extend({
         defaults: {
             name: '',
-            phone: '',
+            phoneNumber: '',
             address: {
                 city: '',
                 street: '',

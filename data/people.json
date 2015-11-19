@@ -1,8 +1,8 @@
 [
 	{
-		"id": 1,
+		"id": 159,
 		"name": "Oleg",
-		"phone": "050 1234567",
+		"phoneNumber": "050 1234567",
 		"address": {
 			"city": "Kiev",
 			"street": "Pobedy",
@@ -12,9 +12,9 @@
 		"organisation": "Oleg and sons"
 	},
 	{
-		"id": 2,
+		"id": 287,
 		"name": "Vasya",
-		"phone": "063 7654321",
+		"phoneNumber": "063 7654321",
 		"address": {
 			"city": "Lviv",
 			"street": "Mira",
@@ -24,9 +24,9 @@
 		"organisation": "Drova"
 	},
 	{
-		"id": 3,
+		"id": 342,
 		"name": "Sasha",
-		"phone": "097 9524876",
+		"phoneNumber": "097 9524876",
 		"address": {
 			"city": "Dnepr",
 			"street": "Grechko",
