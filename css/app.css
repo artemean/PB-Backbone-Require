@@ -15,15 +15,25 @@ body {
 
 table {
 	border-collapse: collapse;
-	margin: 0 0 20px;
 }
 
 td {
 	border: 1px solid #7b9571;
-	padding: 5px 10px;
+	padding: 10px 15px;
 	background: #fff;
 }
 
 .phonebook table {
 	width: 100%;
+}
+
+.details {
+	font-size: 0.8rem;
+	color: #060;
+	border-bottom: 1px dotted;
+	cursor: pointer;
+}
+.details:hover {
+	border-bottom: 1px solid;
+	color: #090;
 }

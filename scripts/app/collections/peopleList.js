@@ -5,6 +5,7 @@ define( ['backbone', 'app/models/bookItem'], function (Backbone, BookItem) {
         model: BookItem,
 
         url: 'data/people.json'
+        // url: 'http://10.17.175.189:3001/people'
 
     });
     
