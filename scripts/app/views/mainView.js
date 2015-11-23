@@ -1,4 +1,4 @@
-define(['backbone', 'app/views/listView', 'app/views/singleView'], function (Backbone, ListView, SingleView) {
+define(['backbone', 'app/views/listView', 'app/views/singleView', 'app/views/router'], function (Backbone, ListView, SingleView, UserRouter) {
     
     var MainView = Backbone.View.extend({
         tagName: 'section',
@@ -13,6 +13,8 @@ define(['backbone', 'app/views/listView', 'app/views/singleView'], function (Bac
 
             this.listView = new ListView();
 
+            this.router = 
+
         },
 
         render: function () {
@@ -23,25 +25,16 @@ define(['backbone', 'app/views/listView', 'app/views/singleView'], function (Bac
         },
 
         showItem: function (e) {
-            var iid = ($(e.target).parents('tr').data('itemid'));
-            
-            // console.log(iid);
-            // console.log(this.listView.collection.models[0].id );
+            var itemId = ($(e.target).parents('tr').data('itemid'));
 
-            // console.log($(e.target).parents('tr').data('itemid'));
-
-            this.listView.$el.detach();
-
-            var myModel = this.listView.collection.get(iid);
-
-
-            this.singleView = new SingleView({model: myModel});
-
+            this.listView.$el.remove();
+            var personModel = this.listView.collection.get(itemId);
+            this.singleView = new SingleView({model: personModel});
             this.$el.append(this.singleView.render());
         },
 
         showList: function (e) {
-            this.singleView.$el.detach();
+            this.singleView.$el.remove();
             this.render();
         }
 

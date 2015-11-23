@@ -44,6 +44,12 @@ define(['backbone', 'app/views/itemView', 'app/collections/peopleList'], functio
         updateAll: function(){
             console.log('update all');
             this.collection.fetch();
+        },
+
+        close: function () {
+            this.collection.off();
+
+            this.remove();
         }
 
     });
