@@ -1,4 +1,4 @@
-define( ['backbone'], function (Backbone) {
+define( ['backbone','app/views/router'], function (Backbone, UserRouter) {
 
     var ItemView = Backbone.View.extend({
         tagName: 'tr',
@@ -7,7 +7,7 @@ define( ['backbone'], function (Backbone) {
         template: _.template('<td><%= name %></td><td><%= phoneNumber %></td><td><a href="/#people/<%= id %>"class="details">Click for details</a></td>'),
 
         events: {
-            // 'click .details': 'showItem'
+            'click .details': 'showItem'
         },
         
         render: function(){
@@ -18,13 +18,17 @@ define( ['backbone'], function (Backbone) {
             return this.$el;
         },
 
-        showItem: function (e) {
-            var itemId = ($(e.target).parents('tr').data('itemid'));
+        // showItem: function (e) {
+        //     var itemId = ($(e.target).parents('tr').data('itemid'));
 
-            this.listView.$el.remove();
-            var personModel = this.listView.collection.get(itemId);
-            this.singleView = new SingleView({model: personModel});
-            this.$el.append(this.singleView.render());
+        //     this.listView.$el.remove();
+        //     var personModel = this.listView.collection.get(itemId);
+        //     this.singleView = new SingleView({model: personModel});
+        //     this.$el.append(this.singleView.render());
+        // }
+
+        showItem: function () {
+            // Backbone.history.start();
         }
 
     });

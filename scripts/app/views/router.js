@@ -24,7 +24,6 @@ define(['backbone', 'app/views/mainView', 'app/views/listView', 'app/views/singl
             var self = this;
             this.listView.collection.on('sync', function () {
                 var myModel = this.get(id);
-                console.log(myModel);
                 self.loadView(new SingleView({model: myModel}));
             });
         },
