@@ -6,12 +6,9 @@ require.config({
   }
 });
 
-require(['app/views/mainView'], function(MainView){
+require(['app/views/router'], function(UserRouter){
 
-	var mainView = new MainView();
-
-	var router =new UserRouter;
+	var router = new UserRouter;
     Backbone.history.start();
-	// $('.wrap').append(mainView.render());
 
 });

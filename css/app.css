@@ -32,6 +32,7 @@ td {
 	color: #060;
 	border-bottom: 1px dotted;
 	cursor: pointer;
+	text-decoration: none;
 }
 .details:hover, .back:hover {
 	border-bottom: 1px solid;

@@ -16,18 +16,15 @@ define(['backbone', 'app/views/itemView', 'app/collections/peopleList'], functio
             this.collection.on('sync', this.render.bind(this));
 
             this.collection.fetch();
-            this.buttonEl = $();
 
         },
 
         render: function(){
-            // this.$el.after(this.template());
             this.$el.html(this.template());
 
             this.collection.each(function(item){
                 this.renderItem(item);
             }, this);
-            
 
             return this.$el;
         },

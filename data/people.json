@@ -1,6 +1,6 @@
 [
 	{
-		"id": 159,
+		"id": 3,
 		"name": "Oleg",
 		"phoneNumber": "050 1234567",
 		"address": {
@@ -12,7 +12,7 @@
 		"organisation": "Oleg and sons"
 	},
 	{
-		"id": 287,
+		"id": 4,
 		"name": "Vasya",
 		"phoneNumber": "063 7654321",
 		"address": {
@@ -24,7 +24,7 @@
 		"organisation": "Drova"
 	},
 	{
-		"id": 342,
+		"id": 5,
 		"name": "Sasha",
 		"phoneNumber": "097 9524876",
 		"address": {

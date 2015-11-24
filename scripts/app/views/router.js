@@ -1,8 +1,9 @@
-define(['backbone', 'app/views/listView', 'app/views/singleView'], function (Backbone, ListView, SingleView) {
+define(['backbone', 'app/views/mainView', 'app/views/listView', 'app/views/singleView'], function (Backbone, MainView, ListView, SingleView) {
 
     var UserRouter = Backbone.Router.extend({
         initialize: function () {
-            this.mainView = new Maon()
+            this.mainView = new MainView();
+            this.listView = new ListView();
             $('.wrap').append(this.mainView.render());
         },
 
@@ -11,15 +12,21 @@ define(['backbone', 'app/views/listView', 'app/views/singleView'], function (Bac
         },
 
         loadView: function(view){
-            this.view && this.view.remove();
+            if( this.view ){
+                this.view.remove();
+            };
+
             this.view = view;
             this.mainView.$el.html(this.view.render());
         },
 
         showPerson: function(id){
-            this.loadView(new SingleView({model: id}));
-
-            console.log(id);
+            var self = this;
+            this.listView.collection.on('sync', function () {
+                var myModel = this.get(id);
+                console.log(myModel);
+                self.loadView(new SingleView({model: myModel}));
+            });
         },
 
         showList: function(){
