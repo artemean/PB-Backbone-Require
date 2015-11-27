@@ -1,4 +1,4 @@
-define(['backbone', 'app/views/mainView', 'app/views/listView', 'app/views/singleView'], function (Backbone, MainView, ListView, SingleView) {
+define(['backbone', 'app/views/mainView', 'app/views/listView', 'app/views/person'], function (Backbone, MainView, ListView, Person) {
 
     var UserRouter = Backbone.Router.extend({
         initialize: function () {
@@ -8,6 +8,7 @@ define(['backbone', 'app/views/mainView', 'app/views/listView', 'app/views/singl
         },
 
         routes: {
+            "": "showList",
             "people/:id": "showPerson"
         },
 
@@ -24,12 +25,13 @@ define(['backbone', 'app/views/mainView', 'app/views/listView', 'app/views/singl
             var self = this;
             this.listView.collection.on('sync', function () {
                 var myModel = this.get(id);
-                self.loadView(new SingleView({model: myModel}));
+                self.loadView(new Person({model: myModel}));
             });
         },
 
         showList: function(){
-            this.view = new listView()
+            console.log('init');
+            this.loadView(new MainView());
         }
 
     });

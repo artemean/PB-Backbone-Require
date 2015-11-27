@@ -1,4 +1,4 @@
-define( ['backbone','app/views/router'], function (Backbone, UserRouter) {
+define( ['backbone'], function (Backbone) {
 
     var ItemView = Backbone.View.extend({
         tagName: 'tr',
@@ -28,7 +28,7 @@ define( ['backbone','app/views/router'], function (Backbone, UserRouter) {
         // }
 
         showItem: function () {
-            // Backbone.history.start();
+            Backbone.history.navigate('people/' + this.model.id, { trigger: true });
         }
 
     });

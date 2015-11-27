@@ -1,9 +1,9 @@
 define( ['backbone'], function (Backbone) {
 
-    var SingleView = Backbone.View.extend({
+    var Person = Backbone.View.extend({
         tagName: 'table',
         className: 'single-person',
-        template: _.template('<tr><td><%= name %></td><td><%= phoneNumber %></td><td><%= address.city %></td><td><%= address.street %>, <%= address.building %></td><td><%= job %></td><td><%= organisation %></td></tr><tr><td colspan="6"><span class="back">Go back</span></td></tr>'),
+        template: _.template('<tr><td><%= name %></td><td><%= phoneNumber %></td><td><%= address.city %></td><td><%= address.street %>, <%= address.building %></td><td><%= job %></td><td><%= organisation %></td></tr><tr><td colspan="6"><a href="/#" class="back">Go back</a></td></tr>'),
         
         events: {
             'click .back': 'showList'
@@ -22,5 +22,5 @@ define( ['backbone'], function (Backbone) {
         }
     });
 
-    return SingleView;
+    return Person;
 });
