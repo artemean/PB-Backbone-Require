@@ -9,6 +9,6 @@ require.config({
 require(['app/views/router'], function(UserRouter){
 
 	var router = new UserRouter;
-    Backbone.history.start({pushState: true});
+    Backbone.history.start();
 
 });

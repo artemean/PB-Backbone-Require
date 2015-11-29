@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Phone Book application</title>
+		<link rel="stylesheet" href="css/app.css">
+	</head>
+	<body>
+
+		<div class="wrap"></div>
+
+		<script src="scripts/vendors/jquery.js"></script>
+		<script src="scripts/vendors/underscore.js"></script>
+		<script src="scripts/vendors/backbone.js"></script>
+
+		<script>
+			var HomeView = Backbone.View.extend({
+				tagName: "div",
+				id: "home-view",
+				initialize: function() {
+					$("body").html(this.el);
+					this.render();
+				},
+				render: function() {
+					this.$el.html("<h1>This is the home page</h1><a href='#users'>Go to users</a>");
+				}
+			});
+
+			var UsersView = Backbone.View.extend({
+				tagName: "ul",
+				id: "users-list",
+				initialize: function() {
+					$("body").html(this.el);
+					this.subViews = _.map(["Jules", "Vincent", "Marsellus"], function(user) {
+						return new UserView({ model: new Backbone.Model({ id: user, name: user }) });
+					});
+					this.render();
+				},
+				render: function() {
+					_.each(this.subViews, function(view) {
+						this.$el.append(view.el);
+					}, this);
+					this.$el.after("<a href='#home'>Go to home</a>");
+				},
+				close: function() {
+					_.each(this.subViews, function(view) { view.remove(); });
+					this.remove();
+				}
+			});
+
+			var UserView = Backbone.View.extend({
+				tagName: "li",
+				initialize: function() {
+					_.bindAll(this, "alertName");
+					this.render();
+				},
+				events: {
+					"click" : "alertName"
+				},
+				render: function() {
+					this.$el.html("Hi, my name is " + this.model.id);
+				},
+				alertName: function() { alert(this.model.id); }
+			});
+
+			var Router = Backbone.Router.extend({
+				routes : {
+					"home" : "home",
+					"users" : "users"
+				},
+				home : function() {
+					this.loadView(new HomeView());
+				},
+				users : function() {
+					this.loadView(new UsersView());
+				},
+				loadView : function(view) {
+					this.view && (this.view.close ? this.view.close() : this.view.remove());
+					this.view = view;
+				}
+			});
+
+			var router = new Router();
+			Backbone.history.start();
+		</script>
+	</body>
+</html>

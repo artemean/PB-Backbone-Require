@@ -17,14 +17,19 @@ define(['backbone', 'app/views/itemView', 'app/collections/peopleList'], functio
 
             this.collection.fetch();
 
+            // $("body").append(this.$el);
+
         },
 
         render: function(){
-            this.$el.html(this.template());
+            console.log('render listView');
+
 
             this.collection.each(function(item){
                 this.renderItem(item);
             }, this);
+
+            this.$el.html(this.template());
 
             return this.$el;
         },
