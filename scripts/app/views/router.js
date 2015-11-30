@@ -23,7 +23,7 @@ define(['backbone', 'app/views/mainView'], function (Backbone, MainView) {
 
         showList: function(){
             console.log('init showList router');
-            this.mainView.renderListView;
+            this.mainView.renderListView();
         }
 
     });

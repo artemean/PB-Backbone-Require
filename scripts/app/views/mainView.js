@@ -5,28 +5,32 @@ define(['backbone', 'app/views/listView', 'app/views/person'], function (Backbon
         className: 'phonebook',
 
         initialize: function () {
-            this.listView = new ListView();
+            
         },
 
         render: function () {
-            this.$el.append(this.listView.render());  // ???
+            // this.$el.append(this.listView.render());  // ???
             return this.$el;
         },
 
-        loadView: function(view){
-            this.view && (this.view.close ? this.view.close() : this.view.remove());
-            this.view = view;
-
-            // if( this.view ){
-            //     this.view.remove();
-            // };
-
+        loadView: function (view) {
+            // this.view && (this.view.close ? this.view.close() : this.view.remove());
             // this.view = view;
-            // this.mainView.$el.html(this.view.render());
+
+            if( this.view ){
+                this.view.remove();
+            };
+
+            this.view = view;
+            this.$el.append(this.view.$el);
         },
 
         renderListView: function () {
-            this.$el.append(this.listView.render());
+
+            this.loadView(new ListView());
+
+            // this.listView = new ListView(this.$el);
+            // this.$el.append(this.listView.render());
         },
 
         renderPersonView: function (id) {
@@ -36,7 +40,6 @@ define(['backbone', 'app/views/listView', 'app/views/person'], function (Backbon
                 var myModel = this.get(id);
                 self.loadView(new Person({model: myModel}));
             });
-
         }
 
     });
