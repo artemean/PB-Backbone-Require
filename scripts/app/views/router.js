@@ -8,15 +8,20 @@ define(['backbone', 'app/views/mainView'], function (Backbone, MainView) {
 
         routes: {
             "": "showList",
-            "people/:id": "showPerson"
+            "people/:id": "showPerson",
+            "new": "addNew"
         },
 
-        showPerson: function(id){
+        showPerson: function (id) {
             this.mainView.renderPersonView(id);
         },
 
-        showList: function(){
+        showList: function () {
             this.mainView.renderListView();
+        },
+
+        addNew: function () {
+            this.mainView.renderAddPersonView();
         }
 
     });

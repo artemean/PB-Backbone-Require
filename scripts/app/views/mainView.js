@@ -1,4 +1,4 @@
-define(['backbone', 'app/views/listView', 'app/views/person'], function (Backbone, ListView, Person) {
+define(['backbone', 'app/views/listView', 'app/views/person', 'app/views/addPerson'], function (Backbone, ListView, Person, AddPerson) {
     
     var MainView = Backbone.View.extend({
         tagName: 'section',
@@ -19,7 +19,6 @@ define(['backbone', 'app/views/listView', 'app/views/person'], function (Backbon
         },
 
         renderListView: function () {
-
             this.loadView(new ListView());
         },
 
@@ -32,6 +31,10 @@ define(['backbone', 'app/views/listView', 'app/views/person'], function (Backbon
 
                 self.loadView(new Person({model: myModel}));
             });
+        },
+
+        renderAddPersonView: function () {
+            this.loadView(new AddPerson());
         }
 
     });
