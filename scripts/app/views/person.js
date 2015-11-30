@@ -4,21 +4,15 @@ define( ['backbone'], function (Backbone) {
         tagName: 'table',
         className: 'single-person',
         template: _.template('<tr><td><%= name %></td><td><%= phoneNumber %></td><td><%= address.city %></td><td><%= address.street %>, <%= address.building %></td><td><%= job %></td><td><%= organisation %></td></tr><tr><td colspan="6"><a href="/#" class="back">Go back</a></td></tr>'),
-        
-        events: {
-            'click .back': 'showList'
+
+        initialize: function (items) {
+            this.render();
         },
 
-        render: function() {
-            console.log(this.model.attributes);
+        render: function () {
             this.$el.html(this.template(this.model.attributes));
 
             return this.$el;
-        },
-
-        showList: function (e) {
-            this.singleView.$el.remove();
-            this.render();
         }
     });
 

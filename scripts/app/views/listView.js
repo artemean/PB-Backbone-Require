@@ -17,12 +17,10 @@ define(['backbone', 'app/views/itemView', 'app/collections/peopleList'], functio
 
             this.collection.fetch();
 
-            // console.log(this.render());
-
         },
 
         render: function(){
-            console.log('render listView');
+            // console.log('render listView');
             
             this.$el.empty();
 
@@ -40,7 +38,6 @@ define(['backbone', 'app/views/itemView', 'app/collections/peopleList'], functio
             var itemView = new ItemView({
                 model: item
             });
-            // console.log(itemView.render());
             this.$el.prepend( itemView.render() );
             
         },
