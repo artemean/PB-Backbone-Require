@@ -1,0 +1,12 @@
+{
+	"id": 5,
+	"name": "Sasha",
+	"phoneNumber": "097 9524876",
+	"address": {
+		"city": "Dnepr",
+		"street": "Grechko",
+		"building": 9
+	},
+	"job": "designer",
+	"organisation": "Sasha and Sasha"
+}

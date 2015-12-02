@@ -1,6 +1,13 @@
 define( ['backbone'], function (Backbone) {
 
-    var Person = Backbone.Model.extend({
+    var PersonModel = Backbone.Model.extend({
+        urlRoot: '/people',
+
+        url: function () {
+            // debugger;
+            return 'data/' + this.id.id + '.json';
+        },
+
         defaults: {
             name: '',
             phoneNumber: '',
@@ -14,5 +21,5 @@ define( ['backbone'], function (Backbone) {
         }
     });
     
-    return Person;
+    return PersonModel;
 });

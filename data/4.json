@@ -1,0 +1,12 @@
+{
+	"id": 4,
+	"name": "Vasya",
+	"phoneNumber": "063 7654321",
+	"address": {
+		"city": "Lviv",
+		"street": "Mira",
+		"building": 35
+	},
+	"job": "plumber",
+	"organisation": "Drova"
+}
