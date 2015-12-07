@@ -1,12 +1,12 @@
 define( ['backbone'], function (Backbone) {
 
     var PersonModel = Backbone.Model.extend({
-        urlRoot: '/people',
+        urlRoot: 'http://localhost:6069/people',
 
-        url: function () {
-            // debugger;
-            return 'data/' + this.id.id + '.json';
-        },
+        // url: function () {
+        //     // debugger;
+        //     return 'data/' + this.id + '.json';
+        // },
 
         defaults: {
             name: '',

@@ -5,19 +5,18 @@ define( ['backbone', 'app/models/person'], function (Backbone, PersonModel) {
         className: 'single-person',
         template: _.template('<tr><td><%= name %></td><td><%= phoneNumber %></td><td><%= address.city %></td><td><%= address.street %>, <%= address.building %></td><td><%= job %></td><td><%= organisation %></td></td><td><a class="btn edit" href="#edit/<%= id %>">Edit</a></td></tr><tr><td colspan="7"><a href="/#" class="back">Go back</a></tr>'),
 
-        initialize: function (id) {
+        initialize: function (opt) {
             var options = {};
 
             if (!this.model) {
-                if (id !== undefined) {
-                    options.id = id;
+                if (opt !== undefined) {
+                    options.id = opt.id;
                 }
                 this.model = new PersonModel(options);
             }
 
             this.model.fetch();
             this.model.on('sync', this.render.bind(this));
-            console.log(this.model);
         
             this.render();
         },

@@ -15,6 +15,10 @@ define( ['backbone'], function (Backbone) {
             this.$el.html(this.template());
 
             return this.$el;
+        },
+
+        close: function () {
+            this.remove();
         }
     });
 

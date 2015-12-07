@@ -4,8 +4,8 @@ define( ['backbone', 'app/models/person'], function (Backbone, PersonModel) {
 
         model: PersonModel,
 
-        url: 'data/people.json'
-        // url: 'http://localhost:6069/people'
+        // url: 'data/people.json'
+        url: 'http://localhost:6069/people'
 
     });
     

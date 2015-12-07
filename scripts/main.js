@@ -6,7 +6,7 @@ require.config({
   }
 });
 
-require(['app/views/router'], function(UserRouter){
+require(['app/router/router'], function(UserRouter){
 
 	var router = new UserRouter;
     Backbone.history.start();
