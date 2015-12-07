@@ -1,11 +1,12 @@
-define( ['backbone'], function (Backbone) {
+define( ['backbone', 'app/models/person'], function (Backbone, PersonModel) {
 
     var AddPerson = Backbone.View.extend({
         tagName: 'table',
         className: 'single-person',
-        // template: _.template('<tr><td><%= name %></td><td><%= phoneNumber %></td><td><%= address.city %></td><td><%= address.street %>, <%= address.building %></td><td><%= job %></td><td><%= organisation %></td></tr><tr><td colspan="6"><a href="/#" class="back">Go back</a></td></tr>'),
-        // template: _.template('<tr><th>Name</th><th>Phone</th><th>City</th><th>Address</th><th>Job</th><th>Organisation</th></tr><tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>'),
-        template: _.template('<tr><td>Name</td><td><input type="text" class="name-input"></td></tr><tr><td>Phone</td><td><input type="text" class="phone-input"></td></tr><tr><td>City</td><td><input type="text" class="city-input"></td></tr><tr><td>Address</td><td><input type="text" class="address-input"></td></tr><tr><td>Job</td><td><input type="text" class="job-input"></td></tr><tr><td>Organisation</td><td><input type="text" class="organisation-input"></td></tr><tr><td colspan="2"><button type="button" class="btn save">Save</button></td></tr>'),
+
+        template: _.template('<tr><td>Name</td><td><input type="text" class="name-input"></td></tr><tr><td>Phone</td><td><input type="text" class="phone-input"></td></tr><tr><td>City</td><td><input type="text" class="city-input"></td></tr><tr><td>Street</td><td><input type="text" class="street-input"></td></tr><tr><td>Building</td><td><input type="text" class="building-input"></td></tr><tr><td>Job</td><td><input type="text" class="job-input"></td></tr><tr><td>Organisation</td><td><input type="text" class="organisation-input"></td></tr><tr><td colspan="2"><button type="button" class="btn save">Save</button></td></tr>'),
+
+        events: {'click .save': 'savePerson'},
 
         initialize: function () {
             this.render();
@@ -19,7 +20,29 @@ define( ['backbone'], function (Backbone) {
 
         close: function () {
             this.remove();
+        },
+
+        savePerson: function () {
+            var person = new PersonModel({
+
+                name: $('.name-input').val(),
+                phoneNumber: $('.phone-input').val(),
+                address: {
+                    city: $('.city-input').val(),
+                    street: $('.street-input').val(),
+                    building: $('.building-input').val()
+                },
+                job: $('.job-input').val(),
+                organisation: $('.organisation-input').val()
+            });
+            person.save(null, { success: function () {
+                    Backbone.history.navigate('/', true);
+                } 
+            });
+            console.log( person );
+            
         }
+
     });
 
     return AddPerson;

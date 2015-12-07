@@ -1,4 +1,4 @@
-define(['backbone', 'app/views/listView', 'app/views/person', 'app/views/addPerson', 'app/models/person'], function (Backbone, ListView, Person, AddPerson) {
+define(['backbone', 'app/views/listView', 'app/views/person', 'app/views/addPerson'], function (Backbone, ListView, Person, AddPerson) {
     
     var MainView = Backbone.View.extend({
         tagName: 'section',
