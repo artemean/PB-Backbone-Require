@@ -25,22 +25,24 @@ define( ['backbone', 'app/models/person'], function (Backbone, PersonModel) {
         savePerson: function () {
             var person = new PersonModel({
 
-                name: $('.name-input').val(),
-                phoneNumber: $('.phone-input').val(),
+                name: this.$('.name-input').val(),
+                phoneNumber: this.$('.phone-input').val(),
                 address: {
-                    city: $('.city-input').val(),
-                    street: $('.street-input').val(),
-                    building: $('.building-input').val()
+                    city: this.$('.city-input').val(),
+                    street: this.$('.street-input').val(),
+                    building: this.$('.building-input').val()
                 },
-                job: $('.job-input').val(),
-                organisation: $('.organisation-input').val()
+                job: this.$('.job-input').val(),
+                organisation: this.$('.organisation-input').val()
             });
             person.save(null, { success: function () {
+                    alert('New person successfully added');
                     Backbone.history.navigate('/', true);
-                } 
-            });
-            console.log( person );
-            
+                },
+                error: function () {
+
+                }
+            });            
         }
 
     });
