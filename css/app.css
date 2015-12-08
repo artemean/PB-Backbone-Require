@@ -1,7 +1,7 @@
 body {
 	background: #c2efb2;
 	color: #000;
-	font-family: sans-serif;
+	font-family: 'Bitter', serif;
 }
 
 .wrap {
@@ -21,11 +21,13 @@ td, th {
 	border: 1px solid #7b9571;
 	padding: 10px 15px;
 	background: #fff;
+	font-size: 0.9em;
 }
 
 th {
 	text-align: left;
 	background: #ccdac7;
+	font-size: 1em;
 }
 
 .phonebook table {
@@ -57,6 +59,7 @@ th {
 	background: #ccc;
 	border: 1px solid #555;
 	cursor: pointer;
+	font-family: 'Bitter', serif;
 }
 
 .btn:hover {

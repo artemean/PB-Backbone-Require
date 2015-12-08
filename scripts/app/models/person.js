@@ -17,7 +17,7 @@ define( ['backbone'], function (Backbone) {
                 building: ''
             },
             job: '',
-            organisation: ''
+            organization: ''
         }
     });
     

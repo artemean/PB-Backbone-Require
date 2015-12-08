@@ -4,7 +4,7 @@ define( ['backbone', 'app/models/person'], function (Backbone, PersonModel) {
         tagName: 'table',
         className: 'single-person',
 
-        template: _.template('<tr><td>Name</td><td><input type="text" class="name-input"></td></tr><tr><td>Phone</td><td><input type="text" class="phone-input"></td></tr><tr><td>City</td><td><input type="text" class="city-input"></td></tr><tr><td>Street</td><td><input type="text" class="street-input"></td></tr><tr><td>Building</td><td><input type="text" class="building-input"></td></tr><tr><td>Job</td><td><input type="text" class="job-input"></td></tr><tr><td>Organisation</td><td><input type="text" class="organisation-input"></td></tr><tr><td colspan="2"><button type="button" class="btn save">Save</button></td></tr>'),
+        template: _.template('<tr><td>Name</td><td><input type="text" class="name-input"></td></tr><tr><td>Phone</td><td><input type="text" class="phone-input"></td></tr><tr><td>City</td><td><input type="text" class="city-input"></td></tr><tr><td>Street</td><td><input type="text" class="street-input"></td></tr><tr><td>Building</td><td><input type="text" class="building-input"></td></tr><tr><td>Job</td><td><input type="text" class="job-input"></td></tr><tr><td>Organization</td><td><input type="text" class="organization-input"></td></tr><tr><td colspan="2"><button type="button" class="btn save">Save</button></td></tr>'),
 
         events: {'click .save': 'savePerson'},
 
@@ -33,7 +33,7 @@ define( ['backbone', 'app/models/person'], function (Backbone, PersonModel) {
                     building: this.$('.building-input').val()
                 },
                 job: this.$('.job-input').val(),
-                organisation: this.$('.organisation-input').val()
+                organization: this.$('.organization-input').val()
             });
             person.save(null, { success: function () {
                     alert('New person successfully added');

@@ -40,7 +40,7 @@ define(['backbone', 'app/views/listView', 'app/views/person', 'app/views/addPers
 
         renderEditView: function (id) {
             console.log(id);
-            // this.loadView(new EditPerson());
+            this.loadView(new EditPerson({id: id}));
         }
 
     });

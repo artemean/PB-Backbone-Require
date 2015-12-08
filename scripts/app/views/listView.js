@@ -7,7 +7,7 @@ define(['backbone', 'app/views/itemView', 'app/collections/peopleList'], functio
 
         template: _.template('<tr><td colspan="6"><a href="#new" class="btn add">Add new</a> <button class="btn remove">Remove</button> <button class="btn update">Update</button></td></tr>'),
 
-        heading: _.template('<tr><th>Select</th><th>Name</th><th>Phone</th><th>Details</th></tr>'),
+        heading: _.template('<tr><th width="60">Select</th><th>Name</th><th>Phone</th><th>Details</th></tr>'),
 
         events: {
             'click .update': 'updateAll',
@@ -42,7 +42,7 @@ define(['backbone', 'app/views/itemView', 'app/collections/peopleList'], functio
             this.$el.prepend( itemView.render() );
         },
 
-        updateAll: function(){
+        updateAll: function () {
             console.log('update all');
             this.collection.fetch();
         },
@@ -55,12 +55,18 @@ define(['backbone', 'app/views/itemView', 'app/collections/peopleList'], functio
         removeItem: function () {
             var ch = $('.people').find('input[type="checkbox"]:checked'),
                 col = this.collection;
-            ch.each(function(){
-                var dat = $(this).parents('tr').data('itemid'),
-                    mod = col.get(dat);
-                
-                mod.destroy();
-            });
+            if ( ch.length && confirm("Вы подтверждаете удаление?") ) {
+                ch.each(function () {
+                    var dat = $(this).parents('tr').data('itemid'),
+                        mod = col.get(dat);
+                    mod.destroy();
+                });
+
+                alert('Items deleted');
+            } else {
+                alert('Nothing deleted');
+            }
+            
         }
 
     });
