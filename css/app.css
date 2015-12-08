@@ -17,10 +17,15 @@ table {
 	border-collapse: collapse;
 }
 
-td {
+td, th {
 	border: 1px solid #7b9571;
 	padding: 10px 15px;
 	background: #fff;
+}
+
+th {
+	text-align: left;
+	background: #ccdac7;
 }
 
 .phonebook table {
@@ -56,4 +61,12 @@ td {
 
 .btn:hover {
 	background: #aaa;
+}
+
+.remove {
+	background: #faa;
+}
+
+.add {
+	background: #afa;
 }

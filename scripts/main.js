@@ -8,7 +8,7 @@ require.config({
 
 require(['app/router/router'], function(UserRouter){
 
-	var router = new UserRouter;
+    var router = new UserRouter;
     Backbone.history.start();
 
 });

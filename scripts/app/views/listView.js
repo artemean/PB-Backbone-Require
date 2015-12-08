@@ -3,29 +3,39 @@ define(['backbone', 'app/views/itemView', 'app/collections/peopleList'], functio
     var ListView = Backbone.View.extend({
         tagName: 'table',
 
-        template: _.template('<tr><td colspan="6"><a href="#new" class="btn add">Add new</a> <button class="btn update">Update</button></td></tr>'),
+        className: 'people',
+
+        template: _.template('<tr><td colspan="6"><a href="#new" class="btn add">Add new</a> <button class="btn remove">Remove</button> <button class="btn update">Update</button></td></tr>'),
+
+        heading: _.template('<tr><th>Select</th><th>Name</th><th>Phone</th><th>Details</th></tr>'),
 
         events: {
-            'click .update': 'updateAll'
+            'click .update': 'updateAll',
+            'click .remove': 'removeItem'
         },
 
-        initialize: function(items){
+        initialize: function (items) {
             this.collection = new People(items);
             this.collection.on('sync', this.render.bind(this));
             this.collection.fetch();
         },
 
         render: function(){
-            // console.log('render listView');
             this.$el.empty();
-            this.collection.each(function(item){
+
+
+            this.collection.each(function (item) {
                 this.renderItem(item);
             }, this);
+
+            this.$el.prepend(this.heading());
+
             this.$el.append(this.template());
+
             return this.$el;
         },
 
-        renderItem: function(item){
+        renderItem: function (item) {
             var itemView = new ItemView({
                 model: item
             });
@@ -40,6 +50,17 @@ define(['backbone', 'app/views/itemView', 'app/collections/peopleList'], functio
         close: function () {
             this.collection.off();
             this.remove();
+        },
+
+        removeItem: function () {
+            var ch = $('.people').find('input[type="checkbox"]:checked'),
+                col = this.collection;
+            ch.each(function(){
+                var dat = $(this).parents('tr').data('itemid'),
+                    mod = col.get(dat);
+                
+                mod.destroy();
+            });
         }
 
     });

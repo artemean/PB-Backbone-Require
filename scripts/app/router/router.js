@@ -9,7 +9,8 @@ define(['backbone', 'app/views/mainView'], function (Backbone, MainView) {
         routes: {
             "": "showList",
             "people/:id": "showPerson",
-            "new": "addNew"
+            "new": "addNew",
+            "edit/:id": "editItem"
         },
 
         showPerson: function (id) {
@@ -22,6 +23,10 @@ define(['backbone', 'app/views/mainView'], function (Backbone, MainView) {
 
         addNew: function () {
             this.mainView.renderAddPersonView();
+        },
+
+        editItem: function (id) {
+            this.mainView.renderEditView(id);
         }
 
     });

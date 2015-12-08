@@ -3,7 +3,7 @@ define( ['backbone'], function (Backbone) {
     var ItemView = Backbone.View.extend({
         tagName: 'tr',
         className: 'single-item',
-        template: _.template('<td><%= name %></td><td><%= phoneNumber %></td><td><a href="/#people/<%= id %>"class="details">Click for details</a></td>'),
+        template: _.template('<td><input type="checkbox"></td><td><%= name %></td><td><%= phoneNumber %></td><td><a href="/#people/<%= id %>"class="details">Click for details</a></td>'),
 
         events: {
             'click .details': 'showItem'
