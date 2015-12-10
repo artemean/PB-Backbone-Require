@@ -36,8 +36,8 @@ define( ['backbone', 'app/models/person'], function (Backbone, PersonModel) {
         },
 
         savePerson: function () {
-            var person = new PersonModel({
-
+            var person = this.model;
+            person.set({
                 name: this.$('.name-input').val(),
                 phoneNumber: this.$('.phone-input').val(),
                 address: {
@@ -48,8 +48,8 @@ define( ['backbone', 'app/models/person'], function (Backbone, PersonModel) {
                 job: this.$('.job-input').val(),
                 organization: this.$('.organization-input').val()
             });
+
             person.save(null, {
-                patch: true,
                 success: function () {
                     alert('Person details successfully changed');
                     Backbone.history.navigate('/', true);

@@ -23,7 +23,6 @@ define(['backbone', 'app/views/itemView', 'app/collections/peopleList'], functio
         render: function(){
             this.$el.empty();
 
-
             this.collection.each(function (item) {
                 this.renderItem(item);
             }, this);
@@ -53,9 +52,9 @@ define(['backbone', 'app/views/itemView', 'app/collections/peopleList'], functio
         },
 
         removeItem: function () {
-            var ch = $('.people').find('input[type="checkbox"]:checked'),
+            var ch = this.$el.find('input[type="checkbox"]:checked'),
                 col = this.collection;
-            if ( ch.length && confirm("Вы подтверждаете удаление?") ) {
+            if ( ch.length && confirm("Are you sure you want to temove the item?") ) {
                 ch.each(function () {
                     var dat = $(this).parents('tr').data('itemid'),
                         mod = col.get(dat);

@@ -30,6 +30,14 @@ th {
 	font-size: 1em;
 }
 
+input {
+	font-family: 'Bitter', serif;
+}
+
+input[type='text'] {
+	color: #a46;
+}
+
 .phonebook table {
 	width: 100%;
 }
