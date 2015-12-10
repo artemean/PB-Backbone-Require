@@ -21,6 +21,7 @@ define( ['backbone', 'app/models/person'], function (Backbone, PersonModel) {
             this.model.fetch();
             this.model.on('sync', this.render.bind(this));
         
+
             this.render();
         },
 
@@ -47,7 +48,9 @@ define( ['backbone', 'app/models/person'], function (Backbone, PersonModel) {
                 job: this.$('.job-input').val(),
                 organization: this.$('.organization-input').val()
             });
-            person.save(null, { success: function () {
+            person.save(null, {
+                patch: true,
+                success: function () {
                     alert('Person details successfully changed');
                     Backbone.history.navigate('/', true);
                 },

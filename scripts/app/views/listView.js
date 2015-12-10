@@ -16,7 +16,7 @@ define(['backbone', 'app/views/itemView', 'app/collections/peopleList'], functio
 
         initialize: function (items) {
             this.collection = new People(items);
-            this.collection.on('sync', this.render.bind(this));
+            this.collection.on('sync remove', this.render.bind(this));
             this.collection.fetch();
         },
 
@@ -60,6 +60,7 @@ define(['backbone', 'app/views/itemView', 'app/collections/peopleList'], functio
                     var dat = $(this).parents('tr').data('itemid'),
                         mod = col.get(dat);
                     mod.destroy();
+
                 });
 
                 alert('Items deleted');
